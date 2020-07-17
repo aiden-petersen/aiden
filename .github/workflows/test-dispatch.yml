@@ -5,10 +5,10 @@ name: test
 on: 
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      environment:
+        description: 'specifiy which environment to run the tests on. Available values: dev, qa, staging, prod'     
         required: true
-        default: 'warning'
+        default: 'dev'
 
 jobs:
   printInputs:
