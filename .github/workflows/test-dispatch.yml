@@ -19,4 +19,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Environment: ${{ github.event.inputs.environment }}, gitRef: ${{ github.event.inputs.gitRef }}"
+        echo "Environment: ${{ github.event.inputs.environment }}, gitRef: ${{ github.event.inputs.gitRef }}, user: ${{ github.actor }} , ref: ${{ github.ref }}"
