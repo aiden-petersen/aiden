@@ -17,7 +17,7 @@ on:
 jobs:
   runQAtests:
     runs-on: ubuntu-latest
-    if: github.actor == "aiden.petersen1"
+    if: ${{ github.actor == "aiden.petersen1" }}
     steps:
     - run: |
         echo "Environment: ${{ github.event.inputs.environment }}, gitRef: ${{ github.event.inputs.gitRef }}, user: ${{ github.actor }} , ref: ${{ github.ref }}"
