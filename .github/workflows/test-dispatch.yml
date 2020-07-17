@@ -9,6 +9,10 @@ on:
         description: 'specifiy which environment to run the tests on. Available values: dev, qa, staging, prod'     
         required: true
         default: 'dev'
+      gitRef:
+        description: 'specify which git branch, tag or SHA reference of the tests to run'
+        required: true
+        default: master
 
 jobs:
   printInputs:
