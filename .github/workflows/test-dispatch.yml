@@ -9,15 +9,16 @@ on:
         description: 'specifiy which environment to run the tests on. Available values: dev, qa, staging, prod'     
         required: true
         default: 'dev'
-      gitRef:
-        description: 'specify which git branch, tag or SHA reference of the tests to run'
-        required: true
-        default: master
 
 jobs:
   runQAtests:
     runs-on: ubuntu-latest
-    if: github.actor == 'aiden.petersen1'
+    env:
+      ENV: "DEV"
+      DEV_PLATFORM: "working"
     steps:
-    - run: |
-        echo "Environment: ${{ github.event.inputs.environment }}, gitRef: ${{ github.event.inputs.gitRef }}, user: ${{ github.actor }} , ref: ${{ github.ref }}"
+     - name: beep
+       run: |
+        echo "::set-env name=PLATFORM_BASE_RUL::eval echo \$${ENV}_PLATFORM"
+     - name: print var
+       run: echo $PLATFORM_BASE_URL
