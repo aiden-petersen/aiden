@@ -8,17 +8,18 @@ on:
       environment:
         description: 'specifiy which environment to run the tests on. Available values: dev, qa, staging, prod'     
         required: true
-        default: 'dev'
+        default: 'DEV'
 
 jobs:
   runQAtests:
     runs-on: ubuntu-latest
     env:
-      ENV: "DEV"
-      DEV_PLATFORM: "working"
+      ENV: ${{ github.event.inputs.environment }}
+      DEV_PLATFORM_BASE_URL: "dev url"
+      QA_PLATFORM_BASE_URL: "qa url"
     steps:
-     - name: beep
+     - name: set environment vars
        run: |
-        echo "::set-env name=PLATFORM_BASE_RUL::eval echo \$${ENV}_PLATFORM"
+        echo "::set-env name=PLATFORM_BASE_URL::eval echo \$${ENV}_PLATFORM"
      - name: print var
        run: echo $PLATFORM_BASE_URL
