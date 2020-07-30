@@ -20,7 +20,6 @@ jobs:
     steps:
      - name: set environment vars
        run: |
-         export var=$(eval echo \$${ENV}_PLATFORM_BASE_URL )
-         echo "::set-env name=PLATFORM_BASE_URL::${var}"
+         echo "::set-env name=PLATFORM_BASE_URL::$(eval echo \$${ENV}_PLATFORM_BASE_URL )"
      - name: print var
        run: echo $PLATFORM_BASE_URL
