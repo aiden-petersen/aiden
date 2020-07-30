@@ -20,6 +20,6 @@ jobs:
     steps:
      - name: set environment vars
        run: |
-         echo "::set-env name=PLATFORM_BASE_URL::$(eval echo \$${ENV}_PLATFORM_BASE_URL )"
+         echo "::set-env name=PLATFORM_BASE_URL::$(eval echo \$${{github.event.inputs.environment}}_PLATFORM_BASE_URL )"
      - name: print var
        run: echo $PLATFORM_BASE_URL
