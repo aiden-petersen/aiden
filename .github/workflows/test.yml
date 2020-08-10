@@ -1,0 +1,9 @@
+name: test-2
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "<staging|qa|dev>, which deployment you'd like to test"
+        required: true
+        default: "dev"
